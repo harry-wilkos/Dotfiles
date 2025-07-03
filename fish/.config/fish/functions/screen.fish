@@ -1,0 +1,3 @@
+function screen --wraps='grim -g "$(slurp)" -t ppm - | satty --filename - --output-filename "$HOME/Downloads/$(date "+%Y-%m-%d-%H-%M-%S").png" --font-family RobotoMonoNerdFont --font-style Regular --fullscreen --initial-tool arrow' --description 'alias screen=grim -g "$(slurp)" -t ppm - | satty --filename - --output-filename "$HOME/Downloads/$(date "+%Y-%m-%d-%H-%M-%S").png" --font-family RobotoMonoNerdFont --font-style Regular --fullscreen --initial-tool arrow'
+	grim -g "$(slurp)" -t ppm - | satty --filename - --output-filename "$HOME/Downloads/$(date '+%Y-%m-%d-%H-%M-%S').png" --font-family RobotoMonoNerdFont --font-style Regular --fullscreen --initial-tool arrow       
+end
