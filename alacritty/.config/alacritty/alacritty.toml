@@ -6,6 +6,7 @@ normal = {family = "RobotoMonoNerdFont", style = "Regular"}
 size = 16
 
 [window]
+padding = { x = 15, y = 0 }
 opacity = 0.2
 blur = true
 
