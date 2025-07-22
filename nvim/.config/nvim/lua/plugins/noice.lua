@@ -24,9 +24,9 @@ return {
     })
 
     require("notify").setup({
-		timeout = 750,
+		background_colour = "#000000",
+		timeout = 1500,
 		render = "compact"
 		})
   end,
 }
-

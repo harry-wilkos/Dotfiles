@@ -7,8 +7,8 @@ size = 16
 
 [window]
 padding = { x = 15, y = 0 }
-opacity = 0.2
-blur = true
+opacity = 0
+blur = false
 
 [selection]
 save_to_clipboard = true
@@ -16,28 +16,34 @@ save_to_clipboard = true
 [mouse]
 hide_when_typing = true
 
+[env]
+TERM = "xterm-256color"
 
 [colors.primary]
-background = "0x103c48"
-foreground = "0xadbcbc"
+background = "#272822"
+foreground = "#f8f8f2"
+
+[colors.cursor]
+text = "#272822"
+cursor = "#f8f8f2"
 
 [colors.normal]
-black   = "0x184956"
-red     = "0xfa5750"
-green   = "0x75b938"
-yellow  = "0xdbb32d"
-blue    = "0x4695f7"
-magenta = "0xf275be"
-cyan    = "0x41c7b9"
-white   = "0x72898f"
+black   = "#272822"
+red     = "#f92672"
+green   = "#a6e22e"
+yellow  = "#f4bf75"
+blue    = "#66d9ef"
+magenta = "#ae81ff"
+cyan    = "#a1efe4"
+white   = "#f8f8f2"
 
 [colors.bright]
-black   = "0x2d5b69"
-red     = "0xff665c"
-green   = "0x84c747"
-yellow  = "0xebc13d"
-blue    = "0x58a3ff"
-magenta = "0xff84cd"
-cyan    = "0x53d6c7"
-white   = "0xcad8d9"
+black   = "#75715e"
+red     = "#f92672"
+green   = "#a6e22e"
+yellow  = "#f4bf75"
+blue    = "#66d9ef"
+magenta = "#ae81ff"
+cyan    = "#a1efe4"
+white   = "#f9f8f5"
 
