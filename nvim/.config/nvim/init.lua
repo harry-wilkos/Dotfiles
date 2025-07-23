@@ -22,4 +22,11 @@ require("lazy").setup({
     { import = "plugins" },
   },
 	checker = { enabled = true },
+    	ui = {
+		border = "double",
+		size = {
+			width = 0.8,
+			height = 0.8,
+		},
+	}
 })

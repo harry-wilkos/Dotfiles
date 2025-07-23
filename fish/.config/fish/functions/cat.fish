@@ -1,4 +1,4 @@
 function cat --wraps=bat --description 'alias cat=bat'
-  bat -P $argv
+  bat --theme=ansi -P $argv
         
 end

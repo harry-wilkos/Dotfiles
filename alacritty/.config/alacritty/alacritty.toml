@@ -20,30 +20,26 @@ hide_when_typing = true
 TERM = "xterm-256color"
 
 [colors.primary]
-background = "#272822"
-foreground = "#f8f8f2"
-
-[colors.cursor]
-text = "#272822"
-cursor = "#f8f8f2"
+background = "#002635"  # bg
+foreground = "#e6e6dc"  # fg
 
 [colors.normal]
-black   = "#272822"
-red     = "#f92672"
-green   = "#a6e22e"
-yellow  = "#f4bf75"
-blue    = "#66d9ef"
-magenta = "#ae81ff"
-cyan    = "#a1efe4"
-white   = "#f8f8f2"
+black   = "#517f8d"     # grey (used as base black / muted)
+red     = "#ff5a67"     # red
+green   = "#7fc06e"     # green
+yellow  = "#ffcc1b"     # yellow
+blue    = "#12ade0"     # blue
+magenta = "#c694ff"     # magenta (from pink)
+cyan    = "#00ffff"     # cyan_light
+white   = "#b7cff9"     # purple (used as soft white)
 
 [colors.bright]
-black   = "#75715e"
-red     = "#f92672"
-green   = "#a6e22e"
-yellow  = "#f4bf75"
-blue    = "#66d9ef"
-magenta = "#ae81ff"
-cyan    = "#a1efe4"
-white   = "#f9f8f5"
+black   = "#517f8d"     # same as normal.black
+red     = "#ff5a67"     # same as normal.red
+green   = "#7fc06e"     # same as normal.green
+yellow  = "#ffcc1b"     # same as normal.yellow
+blue    = "#12ade0"     # same as normal.blue
+magenta = "#c694ff"     # same as normal.magenta
+cyan    = "#00ffff"     # same as normal.cyan
+white   = "#b7cff9"     # same as normal.white
 
