@@ -1,0 +1,357 @@
+// Magic: 4fe18889
+// Automatically generated PSI dialog (PSI version 20.5.654)
+// Thu Jul 24 11:51:15 2025
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+sepparm.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+shot.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+shot.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    shot.label = PARM_LABEL_SIMPLE("Shot", "shot") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    shot.menu;
+
+    {  }
+
+    {  }
+}
+
+asset.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    asset.menu;
+
+    {  }
+
+    {  }
+}
+
+load.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("load", "Load") toggle VALUE(load.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+use_main.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+use_main.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_main", "Main") toggle VALUE(use_main.val);
+
+    {  }
+
+    {  }
+}
+
+main_ver.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    {  }
+
+    main_ver.menu;
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm3.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+use_anim.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+use_anim.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_anim", "Animation") toggle VALUE(use_anim.val);
+
+    {  }
+
+    {  }
+}
+
+anim_ver.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    {  }
+
+    anim_ver.menu;
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm4.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+use_fx.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+use_fx.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_fx", "FX") toggle VALUE(use_fx.val);
+
+    {  }
+
+    {  }
+}
+
+fx_ver.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    {  }
+
+    fx_ver.menu;
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm5.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+reload.gad = ROW
+{
+    JUSTIFY(left, center)
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("reload", "Reload")
+	push VALUE(reload.val);
+
+    { WIDTH(0.1) }
+}
+main_latest.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+main_latest.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("main_latest", "Main Latest") toggle VALUE(main_latest.val);
+
+    {  }
+
+    {  }
+}
+
+anim_latest.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("anim_latest", "Anim Latest") toggle VALUE(anim_latest.val);
+
+    {  }
+
+    {  }
+}
+
+fx_latest.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("fx_latest", "FX Latest") toggle VALUE(fx_latest.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+main_path.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ main_path.label = PARM_LABEL("Main Path", "main_path") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "main_path") LABELREF(main_path.label)
+	VALUE(main_path.val) HSTRETCH;
+
+    main_path.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(main_path.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+anim_path.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ anim_path.label = PARM_LABEL("Animation Path", "anim_path") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "anim_path") LABELREF(anim_path.label)
+	VALUE(anim_path.val) HSTRETCH;
+
+    anim_path.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(anim_path.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+fx_path.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ fx_path.label = PARM_LABEL("FX Path", "fx_path") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "fx_path") LABELREF(fx_path.label)
+	VALUE(fx_path.val) HSTRETCH;
+
+    fx_path.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(fx_path.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+backend.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "backend.gad"
+    { 
+	VALUE(backend.gad.val) STRETCH(1,0)
+    } 
+}
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    sepparm.gad; 
+    shot.row.join; 
+    sepparm2.gad; 
+    use_main.row.join; 
+    sepparm3.gad; 
+    use_anim.row.join; 
+    sepparm4.gad; 
+    use_fx.row.join; 
+    sepparm5.gad; 
+    reload.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

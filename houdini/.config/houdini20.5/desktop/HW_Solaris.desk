@@ -1,0 +1,87 @@
+fullscreen   -1
+playbarshown 1
+playbar      -1
+shelf        -1
+menubar      -1
+statusbar    -1
+radial menu set main
+root {
+    split 0.63694 H {
+        split 0.585591 H {
+            split 0.233735 V {
+                split 0.621451 H {
+                    tabs 0 1 {
+                        pane panetab1 -a 0 -l 10 -H /obj/box1/ -T SOP -m sceneview
+                        pane panetab2 -a 0 -l 0 -H /obj/ -T OBJ -m python
+                    }
+                    tabs 1 1 {
+                        pane panetab7 -a 0 -l 10 -H /obj/box1/ -T SOP -m sceneview
+                        pane panetab8 -a 0 -l 10 -H /obj/box1/ -T SOP -m scenegraphtree
+                    }
+                }
+                tabs 1 1 {
+                    pane panetab3 -a 0 -l 10 -H /obj/box1/ -T SOP -m sceneview
+                    pane panetab9 -a 0 -l 10 -H /obj/box1/ -T SOP -m pythonpanel
+                }
+            }
+            tabs 0 1 {
+                pane panetab6 -a 0 -l 10 -H /obj/box1/ -T SOP -m neteditor
+            }
+        }
+        split 0.5 V {
+            tabs 0 1 {
+                pane panetab5 -a 0 -l 10 -H /obj/box1/ -T SOP -m parmeditor
+            }
+            tabs 0 1 {
+                pane panetab4 -a 0 -l 10 -H /obj/box1/ -T SOP -m pythonpanel
+                pane panetab10 -a 0 -l 10 -H /out/ -T ROP -m renderview
+            }
+        }
+    }
+}
+shelfdock -o 0 -l icon_and_text -G "0.50 0.50" add shelf_set_1 shelf_set_2
+viewerstow -x open -b stow -l stow -m hide -c hide -d open ${DESKNAME}.panetab1.world
+vieweroption -a 0 ${DESKNAME}.panetab1.world
+viewlayout -s 2 ${DESKNAME}.panetab1.world
+viewtype -t ortho_right ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",4)`
+viewtype -t ortho_front ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",3)`
+viewtype -t ortho_top ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",1)`
+viewtype -t perspective ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",2)`
+viewerstow -x open -b stow -l stow -m hide -c hide -d open ${DESKNAME}.panetab7.world
+vieweroption -a 2 ${DESKNAME}.panetab7.world
+viewlayout -s 2 ${DESKNAME}.panetab7.world
+viewtype -t ortho_right ${DESKNAME}.panetab7.world.`vpname("${DESKNAME}.panetab7.world",4)`
+viewtype -t ortho_front ${DESKNAME}.panetab7.world.`vpname("${DESKNAME}.panetab7.world",3)`
+viewtype -t ortho_top ${DESKNAME}.panetab7.world.`vpname("${DESKNAME}.panetab7.world",1)`
+viewtype -t perspective ${DESKNAME}.panetab7.world.`vpname("${DESKNAME}.panetab7.world",2)`
+scenegraphtree -S 0.25 -m 2 -p "/collections /lights" -c  -i  -o  -x 1 -s 1 -M 0 -C primtype,descendants,kind,populated,loaded,activation,visibility,solo,selectability  panetab8
+viewerstow -x open -b stow -l stow -m hide -c hide -d open ${DESKNAME}.panetab3.world
+vieweroption -a 2 ${DESKNAME}.panetab3.world
+viewlayout -s 2 ${DESKNAME}.panetab3.world
+viewtype -t ortho_right ${DESKNAME}.panetab3.world.`vpname("${DESKNAME}.panetab3.world",4)`
+viewtype -t ortho_front ${DESKNAME}.panetab3.world.`vpname("${DESKNAME}.panetab3.world",3)`
+viewtype -t ortho_top ${DESKNAME}.panetab3.world.`vpname("${DESKNAME}.panetab3.world",1)`
+viewtype -t perspective ${DESKNAME}.panetab3.world.`vpname("${DESKNAME}.panetab3.world",2)`
+pythonpanel -s on -t off -n SceneGraphLayersPanel panetab9
+networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.4",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"sop:listmode":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"1",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"1",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 109.298909 195.212164",\n	"perfstatname":"Time",\n	"palettesize":"161 161",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"1",\n	"showtypesidebar":"0"\n}\n' panetab6
+netcolumns -c display,xray,select,origin,capture,bone -n OBJ panetab6
+netcolumns -c display,render,template,selectabletemplate,highlight,unload,bypass,lock -n SOP panetab6
+netcolumns -c delscript,comment -n CHOPNET panetab6
+netcolumns -c display,export,audio,bypass,lock -n CHOP panetab6
+netcolumns -c startrender,bypass,lock -n ROP panetab6
+netcolumns -c delscript,comment -n SHOP panetab6
+netcolumns -c display,render,template,bypass -n COP2 panetab6
+netcolumns -c delscript,comment -n IMG panetab6
+netcolumns -c delscript,comment,input -n VOP panetab6
+netcolumns -c delscript,comment -n VOPNET panetab6
+netcolumns -c delscript,comment -n DOP panetab6
+netcolumns -c delscript,comment -n TOP panetab6
+netcolumns -c delscript,comment -n TOPNET panetab6
+netcolumns -c display,bypass,delscript,comment,input -n LOP panetab6
+netcolumns -c delscript,comment -n COP panetab6
+netcolumns -c delscript,comment -n MGR panetab6
+netcolumns -c delscript,comment -n DIR panetab6
+netcolumns -c delscript,comment -n DATA panetab6
+parmeditor -T 0.25 -w 0 panetab5
+pythonpanel -s on -t off -n SceneGraphDetails panetab4
+ropview -c 1 panetab10

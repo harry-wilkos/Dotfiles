@@ -1,17 +1,7 @@
-return {{
-
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-	require("cyberdream").setup({
-	    transparent = true,
-	    italic_comments = true,
-	    saturation = 1,
-	colors = {
+colors = {
 	  bg             = "#002635",   -- bg (main background)
 	  bg_alt         = "#004763",   -- bg_tab (alt/border/tab background)
-	  bg_highlight   = "#00cccc",   -- cyan (accent/highlight)
+	  bg_highlight   = "#75D7CB",   -- cyan (accent/highlight)
 	  fg             = "#e6e6dc",   -- fg (main foreground)
 	  grey           = "#517f8d",   -- grey (dim/muted text tone)
 	  blue           = "#12ade0",   -- blue (vibrant)
@@ -23,7 +13,22 @@ return {{
 	  pink           = "#fb94ff",   -- pink_light (softer/paler tone)
 	  orange         = "#f08e48",   -- orange (warm accent)
 	  purple         = "#b7cff9",   -- grey_light (soft, cool purple tone)
-	}	})
+}
+
+return {{
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+	for name, hex in pairs(colors) do
+	    vim.api.nvim_set_hl(0, name, { fg = hex})
+	end 
+	require("cyberdream").setup({
+	    transparent = true,
+	    italic_comments = true,
+	    saturation = 1,
+	    colors = colors
+		})
 	vim.cmd("colorscheme cyberdream")
     end
 }

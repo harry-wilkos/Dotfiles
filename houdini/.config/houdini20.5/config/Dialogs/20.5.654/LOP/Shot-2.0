@@ -1,0 +1,3198 @@
+// Magic: ab7a4b08
+// Automatically generated PSI dialog (PSI version 20.5.654)
+// Thu Jul 24 11:52:57 2025
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+targettopnetwork.gad = NULL { }
+
+load_shot.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    load_shot.label = PARM_LABEL_SIMPLE("Load Shot", "load_shot") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    load_shot.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+frame_range.gad = NULL { }
+sepparm2.gad = NULL { }
+cam.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+cam.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ cam.label = PARM_LABEL("Camera", "cam") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "cam") LABELREF(cam.label)
+	VALUE(cam.val) HSTRETCH;
+
+    cam.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(cam.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+
+st_map.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ st_map.label = PARM_LABEL("Distortion Map", "st_map") ;
+
+ PARM_FIELD (pathstring, "st_map") LABELREF(st_map.label)
+	VALUE(st_map.val) HSTRETCH;
+
+    st_map.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(st_map.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+}	// Template join.bot
+
+
+sepparm3.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+plate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ plate.label = PARM_LABEL("Plate", "plate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "plate") LABELREF(plate.label)
+	VALUE(plate.val) HSTRETCH;
+
+    plate.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(plate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm6.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+padding.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ padding.label = PARM_LABEL("Padding", "padding") WIDTH(1.5);
+ PARM(integer, 1, "padding", none, none) RANGE(0,24)
+	 LABELREF(padding.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+description.gad = ROW
+{
+
+    LAYOUT(overlap) HSTRETCH JUSTIFY(right, top)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    {
+	LAYOUT(horizontal) JUSTIFY(right, top)
+
+    }
+
+    {
+	LAYOUT(vertical) HSTRETCH JUSTIFY(left, top)
+
+	description.label = PARM_LABEL("Description", "description");
+	{ HEIGHT(0.06) }
+
+        description.field = MULTILINE_PARM_FIELD ("description")
+	    LABELREF(description.label)
+	    VALUE(description.val)
+	    SYNTAX("")
+	    LINES(5)
+	    HSTRETCH;
+    }
+
+}
+publish.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+publish.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("publish", "Publish Shot")
+	push VALUE(publish.val);
+
+    {  }
+}
+
+reload_shot.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("reload_shot", "Reload Shot")
+	push VALUE(reload_shot.val);
+
+    {  }
+}
+
+delete.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("delete", "Delete Shot")
+	push VALUE(delete.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm5.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+show_publish_backend.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    PARM_BUTTON("show_publish_backend", "") toggle VALUE(show_publish_backend.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+cam_path.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    cam_path.label = PARM_LABEL("Alembric Camera Path", "cam_path") WIDTH(1.5);
+    PARM_FIELD(string, "cam_path") VALUE(cam_path.val) 
+	LABELREF(cam_path.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+back_plate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ back_plate.label = PARM_LABEL("Back Plate", "back_plate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "back_plate") LABELREF(back_plate.label)
+	VALUE(back_plate.val) HSTRETCH;
+
+    back_plate.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(back_plate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm8.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm20.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+engine.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    engine.label = PARM_LABEL_SIMPLE("Rendering Engine", "engine") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    engine.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm12.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+samplesperpixel.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ samplesperpixel.label = PARM_LABEL("Primary Samples", "samplesperpixel") WIDTH(1.5);
+ PARM(integer, 1, "samplesperpixel", none, none) RANGE(1,256)
+	LOCK_RANGE_MIN LABELREF(samplesperpixel.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+pathtracedsamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ pathtracedsamples.label = PARM_LABEL("Path Traced Samples", "pathtracedsamples") WIDTH(1.5);
+ PARM(integer, 1, "pathtracedsamples", none, none) RANGE(1,256)
+	LOCK_RANGE_MIN LABELREF(pathtracedsamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+russianroulette_cutoff.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ russianroulette_cutoff.label = PARM_LABEL("Russian Roulette", "russianroulette_cutoff") WIDTH(1.5);
+ PARM(integer, 1, "russianroulette_cutoff", none, none) RANGE(0,4)
+	LOCK_RANGE_MIN LABELREF(russianroulette_cutoff.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm13.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm14.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+varianceaa_minsamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ varianceaa_minsamples.label = PARM_LABEL("Min Secondary Samples", "varianceaa_minsamples") WIDTH(1.5);
+ PARM(integer, 1, "varianceaa_minsamples", none, none) RANGE(1,9)
+	LOCK_RANGE_MIN LABELREF(varianceaa_minsamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+varianceaa_maxsamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ varianceaa_maxsamples.label = PARM_LABEL("Max Secondary Samples", "varianceaa_maxsamples") WIDTH(1.5);
+ PARM(integer, 1, "varianceaa_maxsamples", none, none) RANGE(1,9)
+	LOCK_RANGE_MIN LABELREF(varianceaa_maxsamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm10.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+diffusequality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ diffusequality.label = PARM_LABEL("Diffuse Quality", "diffusequality") WIDTH(1.5);
+ PARM(float, 1, "diffusequality", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(diffusequality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+reflectquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ reflectquality.label = PARM_LABEL("Reflection Quality", "reflectquality") WIDTH(1.5);
+ PARM(float, 1, "reflectquality", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(reflectquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+refractquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ refractquality.label = PARM_LABEL("Refraction Quality", "refractquality") WIDTH(1.5);
+ PARM(float, 1, "refractquality", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(refractquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+volumequality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ volumequality.label = PARM_LABEL("Volume Quality", "volumequality") WIDTH(1.5);
+ PARM(float, 1, "volumequality", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(volumequality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sssquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ sssquality.label = PARM_LABEL("SSS Quality", "sssquality") WIDTH(1.5);
+ PARM(float, 1, "sssquality", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(sssquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+light_sampling_quality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ light_sampling_quality.label = PARM_LABEL("Light Sampling Quality", "light_sampling_quality") WIDTH(1.5);
+ PARM(float, 1, "light_sampling_quality", none, none) RANGE(0,4)
+	LOCK_RANGE_MIN LABELREF(light_sampling_quality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm11.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm15.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+screendoorlimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ screendoorlimit.label = PARM_LABEL("Transparency Samples", "screendoorlimit") WIDTH(1.5);
+ PARM(integer, 1, "screendoorlimit", none, none) RANGE(0,16)
+	LOCK_RANGE_MIN LABELREF(screendoorlimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+volumesteprate.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ volumesteprate.label = PARM_LABEL("Volume Step Rate", "volumesteprate") WIDTH(1.5);
+ PARM(float, 1, "volumesteprate", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(volumesteprate.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm16.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+diffuselimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ diffuselimit.label = PARM_LABEL("Diffuse Limit", "diffuselimit") WIDTH(1.5);
+ PARM(float, 1, "diffuselimit", none, SNAP) RANGE(0,32)
+	LOCK_RANGE_MIN LABELREF(diffuselimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+reflectionlimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ reflectionlimit.label = PARM_LABEL("Reflection Limit", "reflectionlimit") WIDTH(1.5);
+ PARM(float, 1, "reflectionlimit", none, SNAP) RANGE(0,32)
+	LOCK_RANGE_MIN LABELREF(reflectionlimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+refractionlimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ refractionlimit.label = PARM_LABEL("Refraction Limit", "refractionlimit") WIDTH(1.5);
+ PARM(float, 1, "refractionlimit", none, SNAP) RANGE(0,32)
+	LOCK_RANGE_MIN LABELREF(refractionlimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+volumelimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ volumelimit.label = PARM_LABEL("Volume Limit", "volumelimit") WIDTH(1.5);
+ PARM(float, 1, "volumelimit", none, SNAP) RANGE(0,32)
+	LOCK_RANGE_MIN LABELREF(volumelimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+ssslimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ ssslimit.label = PARM_LABEL("SSS Limit", "ssslimit") WIDTH(1.5);
+ PARM(float, 1, "ssslimit", none, SNAP) RANGE(0,32)
+	LOCK_RANGE_MIN LABELREF(ssslimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+colorlimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ colorlimit.label = PARM_LABEL("Color Limit", "colorlimit") WIDTH(1.5);
+ PARM(float, 1, "colorlimit", none, SNAP) RANGE(1,10)
+	 LABELREF(colorlimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm17.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+shutter_speed.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ shutter_speed.label = PARM_LABEL("Shutter Speed", "shutter_speed") WIDTH(1.5);
+ PARM(float, 1, "shutter_speed", none, none) RANGE(0,1)
+	 LABELREF(shutter_speed.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm44.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+enablemblur.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+enablemblur.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("enablemblur", "Enable Motion Blur") toggle VALUE(enablemblur.val);
+
+    {  }
+
+    {  }
+}
+
+enabledof.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("enabledof", "Enable Depth of Field") toggle VALUE(enabledof.val);
+
+    {  }
+
+    {  }
+}
+
+enablecaustics.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("enablecaustics", "Enable Caustics") toggle VALUE(enablecaustics.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm18.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+vblur.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    vblur.label = PARM_LABEL_SIMPLE("Velocity Blur", "vblur") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vblur.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+geosamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ geosamples.label = PARM_LABEL("Geometry Time Samples", "geosamples") WIDTH(1.5);
+ PARM(integer, 1, "geosamples", none, none) RANGE(1,8)
+	LOCK_RANGE_MIN LABELREF(geosamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+volumevblurscale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ volumevblurscale.label = PARM_LABEL("Volume Velocity Blur Scale", "volumevblurscale") WIDTH(1.5);
+ PARM(float, 1, "volumevblurscale", none, none) RANGE(0,2)
+	LOCK_RANGE_MIN LABELREF(volumevblurscale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm21.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+causticsroughnessclamp.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ causticsroughnessclamp.label = PARM_LABEL("Caustics Roughness Clamp", "causticsroughnessclamp") WIDTH(1.5);
+ PARM(float, 1, "causticsroughnessclamp", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(causticsroughnessclamp.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm19.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+oracle_variance.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ oracle_variance.label = PARM_LABEL("Variance Threshold", "oracle_variance") WIDTH(1.5);
+ PARM(float, 1, "oracle_variance", none, none) RANGE(0,10)
+	 LABELREF(oracle_variance.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+varianceaa_thresh.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ varianceaa_thresh.label = PARM_LABEL("Noise Level", "varianceaa_thresh") WIDTH(1.5);
+ PARM(float, 1, "varianceaa_thresh", none, none) RANGE(0,0.1)
+	LOCK_RANGE_MIN LABELREF(varianceaa_thresh.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+bucketsize.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ bucketsize.label = PARM_LABEL("Bucket Size", "bucketsize") WIDTH(1.5);
+ PARM(integer, 1, "bucketsize", none, none) RANGE(4,128)
+	LOCK_RANGE_MIN LABELREF(bucketsize.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm23.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+preprocess.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+preprocess.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    preprocess.label = PARM_LABEL_SIMPLE("LPE Tag Method", "preprocess") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    preprocess.menu;
+
+    {  }
+
+    {  }
+}
+
+doomitlpes.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("doomitlpes", "Ignore Untagged Lights") toggle VALUE(doomitlpes.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+lpeaovlimit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ lpeaovlimit.label = PARM_LABEL("LPE Tag AOV Limit", "lpeaovlimit") WIDTH(1.5);
+ PARM(integer, 1, "lpeaovlimit", none, none) RANGE(0,1000)
+	 LABELREF(lpeaovlimit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+prefix.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    prefix.label = PARM_LABEL("Prefix", "prefix") WIDTH(1.5);
+    PARM_FIELD(string, "prefix") VALUE(prefix.val) 
+	LABELREF(prefix.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+tokenseparator.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+tokenseparator.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    tokenseparator.label = PARM_LABEL("Separator", "tokenseparator") WIDTH(1.5);
+    PARM_FIELD(string, "tokenseparator") VALUE(tokenseparator.val) 
+	LABELREF(tokenseparator.label) HSTRETCH;
+
+    {  }
+}
+
+tokenindex.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ tokenindex.label = PARM_LABEL("Index", "tokenindex") ;
+ PARM(integer, 1, "tokenindex", none, none) RANGE(-1,5)
+	 LABELREF(tokenindex.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+vexpression.gad = ROW
+{
+
+    HSTRETCH JUSTIFY(left, top)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    vexpression.field = MULTILINE_PARM_FIELD ("vexpression")
+        VALUE(vexpression.val)
+        SYNTAX("vex")
+        LINES(8,40)
+        HSTRETCH;
+
+    {
+
+    vexpression.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_create_parm_from_ch" VALUE(vexpression.script_action)
+	HELP("Creates spare parameters for each unique call of ch() ")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    }
+
+}
+
+sepparm34.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+default_aov.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+default_aov.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("default_aov", "Default AOVs ")
+	push VALUE(default_aov.val);
+
+    {  }
+}
+
+clear_aov.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("clear_aov", "Clear AOVs")
+	push VALUE(clear_aov.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm22.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+sepparm25.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+beauty.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+beauty.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("beauty", "Beauty") toggle VALUE(beauty.val);
+
+    {  }
+
+    {  }
+}
+
+beautyperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("beautyperlpe", "Split per LPE Tag") toggle VALUE(beautyperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+beautyunshadowed.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+beautyunshadowed.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("beautyunshadowed", "Beauty Unshadowed") toggle VALUE(beautyunshadowed.val);
+
+    {  }
+
+    {  }
+}
+
+beautyunshadowedperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("beautyunshadowedperlpe", "Split per LPE Tag") toggle VALUE(beautyunshadowedperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+shadow.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+shadow.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("shadow", "Shadow") toggle VALUE(shadow.val);
+
+    {  }
+
+    {  }
+}
+
+shadowperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("shadowperlpe", "Split per LPE Tag") toggle VALUE(shadowperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+albedo.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("albedo", "Albedo") toggle VALUE(albedo.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm26.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+combineddiffuse.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+combineddiffuse.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combineddiffuse", "Combined Diffuse") toggle VALUE(combineddiffuse.val);
+
+    {  }
+
+    {  }
+}
+
+combineddiffuseperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("combineddiffuseperlpe", "Split per LPE Tag") toggle VALUE(combineddiffuseperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+directdiffuse.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+directdiffuse.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directdiffuse", "Direct Diffuse") toggle VALUE(directdiffuse.val);
+
+    {  }
+
+    {  }
+}
+
+directdiffuseperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("directdiffuseperlpe", "Split per LPE Tag") toggle VALUE(directdiffuseperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+indirectdiffuse.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+indirectdiffuse.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectdiffuse", "Indirect Diffuse") toggle VALUE(indirectdiffuse.val);
+
+    {  }
+
+    {  }
+}
+
+indirectdiffuseperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("indirectdiffuseperlpe", "Split per LPE Tag") toggle VALUE(indirectdiffuseperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+combineddiffuseunshadowed.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+combineddiffuseunshadowed.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combineddiffuseunshadowed", "Combined Diffuse Unshadowed") toggle VALUE(combineddiffuseunshadowed.val);
+
+    {  }
+
+    {  }
+}
+
+combineddiffuseunshadowedperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("combineddiffuseunshadowedperlpe", "Split per LPE Tag") toggle VALUE(combineddiffuseunshadowedperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+directdiffuseunshadowed.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+directdiffuseunshadowed.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directdiffuseunshadowed", "Direct Diffuse Unshadowed") toggle VALUE(directdiffuseunshadowed.val);
+
+    {  }
+
+    {  }
+}
+
+directdiffuseunshadowedperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("directdiffuseunshadowedperlpe", "Split per LPE Tag") toggle VALUE(directdiffuseunshadowedperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+indirectdiffuseunshadowed.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+indirectdiffuseunshadowed.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectdiffuseunshadowed", "Indirect Diffuse Unshadowed") toggle VALUE(indirectdiffuseunshadowed.val);
+
+    {  }
+
+    {  }
+}
+
+indirectdiffuseunshadowedperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("indirectdiffuseunshadowedperlpe", "Split per LPE Tag") toggle VALUE(indirectdiffuseunshadowedperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+combineddiffuseshadow.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+combineddiffuseshadow.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combineddiffuseshadow", "Combined Diffuse Shadow") toggle VALUE(combineddiffuseshadow.val);
+
+    {  }
+
+    {  }
+}
+
+combineddiffuseshadowperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("combineddiffuseshadowperlpe", "Split per LPE Tag") toggle VALUE(combineddiffuseshadowperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+directdiffuseshadow.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+directdiffuseshadow.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directdiffuseshadow", "Direct Diffuse Shadow") toggle VALUE(directdiffuseshadow.val);
+
+    {  }
+
+    {  }
+}
+
+directdiffuseshadowperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("directdiffuseshadowperlpe", "Split per LPE Tag") toggle VALUE(directdiffuseshadowperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+indirectdiffuseshadow.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+indirectdiffuseshadow.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectdiffuseshadow", "Indirect Diffuse Shadow") toggle VALUE(indirectdiffuseshadow.val);
+
+    {  }
+
+    {  }
+}
+
+indirectdiffuseshadowperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("indirectdiffuseshadowperlpe", "Split per LPE Tag") toggle VALUE(indirectdiffuseshadowperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm27.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+combinedglossyreflection.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+combinedglossyreflection.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combinedglossyreflection", "Combined Glossy Reflection") toggle VALUE(combinedglossyreflection.val);
+
+    {  }
+
+    {  }
+}
+
+combinedglossyreflectionperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("combinedglossyreflectionperlpe", "Split per LPE Tag") toggle VALUE(combinedglossyreflectionperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+directglossyreflection.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+directglossyreflection.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directglossyreflection", "Direct Glossy Reflection") toggle VALUE(directglossyreflection.val);
+
+    {  }
+
+    {  }
+}
+
+directglossyreflectionperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("directglossyreflectionperlpe", "Split per LPE Tag") toggle VALUE(directglossyreflectionperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+indirectglossyreflection.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+indirectglossyreflection.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectglossyreflection", "Indirect Glossy Reflection") toggle VALUE(indirectglossyreflection.val);
+
+    {  }
+
+    {  }
+}
+
+indirectglossyreflectionperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("indirectglossyreflectionperlpe", "Split per LPE Tag") toggle VALUE(indirectglossyreflectionperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+glossytransmission.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+glossytransmission.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("glossytransmission", "Glossy Transmission") toggle VALUE(glossytransmission.val);
+
+    {  }
+
+    {  }
+}
+
+glossytransmissionperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("glossytransmissionperlpe", "Split per LPE Tag") toggle VALUE(glossytransmissionperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm24.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+combinedemission.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combinedemission", "Combined Emission") toggle VALUE(combinedemission.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+directemission.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directemission", "Direct Emission") toggle VALUE(directemission.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+indirectemission.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectemission", "Indirect Emission") toggle VALUE(indirectemission.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+visiblelights.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+visiblelights.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("visiblelights", "Visible Lights") toggle VALUE(visiblelights.val);
+
+    {  }
+
+    {  }
+}
+
+visiblelightsperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("visiblelightsperlpe", "Split per LPE Tag") toggle VALUE(visiblelightsperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm28.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+combinedvolume.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+combinedvolume.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("combinedvolume", "Combined Volume") toggle VALUE(combinedvolume.val);
+
+    {  }
+
+    {  }
+}
+
+combinedvolumeperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("combinedvolumeperlpe", "Split per LPE Tag") toggle VALUE(combinedvolumeperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+directvolume.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+directvolume.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("directvolume", "Direct Volume") toggle VALUE(directvolume.val);
+
+    {  }
+
+    {  }
+}
+
+directvolumeperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("directvolumeperlpe", "Split per LPE Tag") toggle VALUE(directvolumeperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+indirectvolume.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+indirectvolume.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("indirectvolume", "Indirect Volume") toggle VALUE(indirectvolume.val);
+
+    {  }
+
+    {  }
+}
+
+indirectvolumeperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("indirectvolumeperlpe", "Split per LPE Tag") toggle VALUE(indirectvolumeperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm29.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+coat.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+coat.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("coat", "Coat") toggle VALUE(coat.val);
+
+    {  }
+
+    {  }
+}
+
+coatperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("coatperlpe", "Split per LPE Tag") toggle VALUE(coatperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+sss.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+sss.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("sss", "SSS (Subsurface Scattering)") toggle VALUE(sss.val);
+
+    {  }
+
+    {  }
+}
+
+sssperlpe.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("sssperlpe", "Split per LPE Tag") toggle VALUE(sssperlpe.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm30___2.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+hitP.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hitP", "P (World Space)") toggle VALUE(hitP.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+hitPz.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hitPz", "Depth (Camera Space)") toggle VALUE(hitPz.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+element.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("element", "Element (Raw Id)") toggle VALUE(element.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+primid.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("primid", "Prim Id") toggle VALUE(primid.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+hituv.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hituv", "UV") toggle VALUE(hituv.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+hitN.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hitN", "N (Smooth Normal)") toggle VALUE(hitN.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+hitNg.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("hitNg", "Ng (Geometric Normal)") toggle VALUE(hitNg.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+motionvectors.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("motionvectors", "Motion Vectors") toggle VALUE(motionvectors.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+velocity.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("velocity", "Velocity") toggle VALUE(velocity.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm31.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+cryptoobject.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cryptoobject", "Crypto Object") toggle VALUE(cryptoobject.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+cryptomat.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cryptomat", "Crypto Material") toggle VALUE(cryptomat.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm32.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+rendervars.parm =
+{
+    LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Render Vars", "rendervars") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center) VALUE(rendervars.val)
+
+        rendervars.field = PARM_FIELD (integer, "rendervars")
+				VALUE(rendervars.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(rendervars.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(rendervars.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(rendervars.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+rendervars.multilist = 
+{
+    LAYOUT(vertical) HSTRETCH MARGIN(0.05)
+}
+
+rendervars.gad =
+{
+    LAYOUT(vertical) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    SWITCHER tight
+    {
+	LAYOUT(overlap!)
+        VALUE(rendervars.multilist_hide_buttons.val)
+	{
+	    LAYOUT(vertical) HSTRETCH
+	    rendervars.parm;
+	    {LOOK(none) HEIGHT(0.02)}
+	}
+	{
+	}
+    }
+    rendervars.multilist;
+}
+
+sepparm36.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+render_deep.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+render_deep.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("render_deep", "Render") toggle VALUE(render_deep.val);
+
+    {  }
+
+    {  }
+}
+
+dcm.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("dcm", "Deep") toggle VALUE(dcm.val);
+
+    {  }
+
+    {  }
+}
+
+dcmzbias.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ dcmzbias.label = PARM_LABEL("Point Merge Threshold", "dcmzbias") ;
+ PARM(float, 1, "dcmzbias", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(dcmzbias.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+sepparm30.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+products.parm =
+{
+    LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Products", "products") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center) VALUE(products.val)
+
+        products.field = PARM_FIELD (integer, "products")
+				VALUE(products.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(products.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(products.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(products.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+products.multilist = 
+{
+    LAYOUT(vertical) HSTRETCH MARGIN(0.05)
+}
+
+products.gad =
+{
+    LAYOUT(vertical) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    SWITCHER tight
+    {
+	LAYOUT(overlap!)
+        VALUE(products.multilist_hide_buttons.val)
+	{
+	    LAYOUT(vertical) HSTRETCH
+	    products.parm;
+	    {LOOK(none) HEIGHT(0.02)}
+	}
+	{
+	}
+    }
+    products.multilist;
+}
+
+sepparm4.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm7.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm9.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+evaluaton_type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    evaluaton_type.label = PARM_LABEL_SIMPLE("Frame Type", "evaluaton_type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    evaluaton_type.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+frame_range2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   frame_range2.label = PARM_LABEL("Frame Range", "frame_range2") WIDTH(1.5);
+   PARM(integer, 2, "frame_range2", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(frame_range2.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+resolution.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+resolution.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   resolution.label = PARM_LABEL("Resolution", "resolution") WIDTH(1.5);
+   PARM(integer, 2, "resolution", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(resolution.label)
+	HSTRETCH;
+
+    {  }
+}
+
+resolutionMenu.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+    {  }
+
+    resolutionMenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+}
+}	// Template join.bot
+
+
+sepparm33.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+render_local.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+render_local.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("render_local", "Local Render")
+	push VALUE(render_local.val);
+
+    {  }
+}
+
+cancel_render_local.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("cancel_render_local", "Cancel Local")
+	push VALUE(cancel_render_local.val);
+
+    {  }
+}
+
+mplay.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("mplay", "Monitor with Mplay") toggle VALUE(mplay.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+pdg_usemaxtasks.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+pdg_usemaxtasks.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pdg_usemaxtasks", "Enable Concurrent Cap") toggle VALUE(pdg_usemaxtasks.val);
+
+    {  }
+
+    {  }
+}
+
+pdg_maxtasks.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ PARM(integer, 1, "pdg_maxtasks", none, none) RANGE(0,10)
+	 HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+sepparm39.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Farm_Render.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Farm_Render.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Farm_Render", "Farm Render")
+	push VALUE(Farm_Render.val);
+
+    {  }
+}
+
+cancel_render_farm.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("cancel_render_farm", "Cancel Farm")
+	push VALUE(cancel_render_farm.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm35.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm43.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+sepparm37.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+export.gad = ROW
+{
+    JUSTIFY(left, center)
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("export", "Export USDs")
+	push VALUE(export.val);
+
+    { WIDTH(0.1) }
+}
+
+sepparm38.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.070590) }
+}
+
+show_render_backend.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    PARM_BUTTON("show_render_backend", "") toggle VALUE(show_render_backend.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+usd_output.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+usd_output.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ usd_output.label = PARM_LABEL("USD Output", "usd_output") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "usd_output") LABELREF(usd_output.label)
+	VALUE(usd_output.val) HSTRETCH;
+
+    usd_output.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(usd_output.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+
+usd_format.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    usd_format.menu;
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+render_version.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ render_version.label = PARM_LABEL("Render Version", "render_version") WIDTH(1.5);
+ PARM(integer, 1, "render_version", none, none) RANGE(0,10)
+	 LABELREF(render_version.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+render_base.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ render_base.label = PARM_LABEL("Render Base", "render_base") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "render_base") LABELREF(render_base.label)
+	VALUE(render_base.val) HSTRETCH;
+
+    render_base.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(render_base.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+render_output.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ render_output.label = PARM_LABEL("Render Output", "render_output") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "render_output") LABELREF(render_output.label)
+	VALUE(render_output.val) HSTRETCH;
+
+    render_output.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(render_output.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+farm_id.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    farm_id.label = PARM_LABEL("Farm ID", "farm_id") WIDTH(1.5);
+    PARM_FIELD(string, "farm_id") VALUE(farm_id.val) 
+	LABELREF(farm_id.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+rendering.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("rendering", "Rendering") toggle VALUE(rendering.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm41.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Export_Settings.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Export_Settings.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Export_Settings", "Export Settings")
+	push VALUE(Export_Settings.val);
+
+    {  }
+}
+
+Export_Resources.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Export_Resources", "Export Resources")
+	push VALUE(Export_Resources.val);
+
+    {  }
+}
+}	// Template join.bot
+
+Export_Assets.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Export_Assets.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Export_Assets", "Export Assets")
+	push VALUE(Export_Assets.val);
+
+    {  }
+}
+
+Export_USD.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Export_USD", "Export USD")
+	push VALUE(Export_USD.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm40.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Reload_Settings.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Reload_Settings.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Reload_Settings", "Reloadd Settings")
+	push VALUE(Reload_Settings.val);
+
+    {  }
+}
+
+Reload_Resources.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Reload_Resources", "Reload Resources")
+	push VALUE(Reload_Resources.val);
+
+    {  }
+}
+
+Reload_Assets.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Reload_Assets", "Reload Assets")
+	push VALUE(Reload_Assets.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm42.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Dirty_Local.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Dirty_Local.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Dirty_Local", "Dirty Local")
+	push VALUE(Dirty_Local.val);
+
+    {  }
+}
+
+Cook_Local.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Cook_Local", "Cook Local")
+	push VALUE(Cook_Local.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+husk_args.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    husk_args.label = PARM_LABEL("Husk Args", "husk_args") WIDTH(1.5);
+    PARM_FIELD(string, "husk_args") VALUE(husk_args.val) 
+	LABELREF(husk_args.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+current_frame.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ current_frame.label = PARM_LABEL("Current Frame", "current_frame") WIDTH(1.5);
+ PARM(integer, 1, "current_frame", none, none) RANGE(0,10)
+	 LABELREF(current_frame.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+render_backend.gad = 
+
+{
+    VALUE(render_backend.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    usd_output.row.join;		
+	    render_version.gad;		
+	    render_base.gad;		
+	    render_output.gad;		
+	    farm_id.gad;		
+	    rendering.gad;		
+	    sepparm41.gad;		
+	    Export_Settings.row.join;		
+	    Export_Assets.row.join;		
+	    sepparm40.gad;		
+	    Reload_Settings.row.join;		
+	    sepparm42.gad;		
+	    Dirty_Local.row.join;		
+	    husk_args.gad;		
+	    current_frame.gad;		
+} 
+
+Export.gad = 
+
+GROUP simple "Export" flat 
+{ 
+    VALUE(Export.gad.val) LAYOUT(vertical) HSTRETCH 
+	    sepparm37.gad;		
+	    export.gad;		
+	    sepparm38.gad;		
+} 
+
+Render.gad = 
+
+GROUP simple "Render" flat 
+{ 
+    VALUE(Render.gad.val) LAYOUT(vertical) HSTRETCH 
+	    sepparm9.gad;		
+	    evaluaton_type.gad;		
+	    frame_range2.gad;		
+	    resolution.row.join;		
+	    sepparm33.gad;		
+	    render_local.row.join;		
+	    pdg_usemaxtasks.row.join;		
+	    sepparm39.gad;		
+	    Farm_Render.row.join;		
+	    sepparm35.gad;		
+	    sepparm43.gad;		
+} 
+
+customaov.gad = 
+GROUP collapsible "Custom" flat   
+{
+    VALUE(customaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm32.gad;		
+	    rendervars.gad;		
+} 
+
+caov.gad = 
+GROUP collapsible "Crypto" flat   
+{
+    VALUE(caov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm31.gad;		
+	    cryptoobject.gad;		
+	    cryptomat.gad;		
+} 
+
+raov_.gad = 
+GROUP collapsible "Ray" flat   
+{
+    VALUE(raov_.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm30___2.gad;		
+	    hitP.gad;		
+	    hitPz.gad;		
+	    element.gad;		
+	    primid.gad;		
+	    hituv.gad;		
+	    hitN.gad;		
+	    hitNg.gad;		
+	    motionvectors.gad;		
+	    velocity.gad;		
+} 
+
+bsdfaov.gad = 
+GROUP collapsible "BSDF Labels" flat   
+{
+    VALUE(bsdfaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm29.gad;		
+	    coat.row.join;		
+	    sss.row.join;		
+} 
+
+volumeaov.gad = 
+GROUP collapsible "Volume" flat   
+{
+    VALUE(volumeaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm28.gad;		
+	    combinedvolume.row.join;		
+	    directvolume.row.join;		
+	    indirectvolume.row.join;		
+} 
+
+leaov.gad = 
+GROUP collapsible "Lights & Emission" flat   
+{
+    VALUE(leaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm24.gad;		
+	    combinedemission.gad;		
+	    directemission.gad;		
+	    indirectemission.gad;		
+	    visiblelights.row.join;		
+} 
+
+rraov.gad = 
+GROUP collapsible "Reflections & Refractions" flat   
+{
+    VALUE(rraov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm27.gad;		
+	    combinedglossyreflection.row.join;		
+	    directglossyreflection.row.join;		
+	    indirectglossyreflection.row.join;		
+	    glossytransmission.row.join;		
+} 
+
+diffuseaov.gad = 
+GROUP collapsible "Diffuse" flat   
+{
+    VALUE(diffuseaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm26.gad;		
+	    combineddiffuse.row.join;		
+	    directdiffuse.row.join;		
+	    indirectdiffuse.row.join;		
+	    combineddiffuseunshadowed.row.join;		
+	    directdiffuseunshadowed.row.join;		
+	    indirectdiffuseunshadowed.row.join;		
+	    combineddiffuseshadow.row.join;		
+	    directdiffuseshadow.row.join;		
+	    indirectdiffuseshadow.row.join;		
+} 
+
+beautyaov.gad = 
+GROUP collapsible "Colour" flat   
+{
+    VALUE(beautyaov.gad.val) LAYOUT(vertical) HSTRETCH
+	    sepparm25.gad;		
+	    beauty.row.join;		
+	    beautyunshadowed.row.join;		
+	    shadow.row.join;		
+	    albedo.gad;		
+} 
+
+transparent.gad = 
+
+GROUP simple "Transparent" flat 
+{ 
+    VALUE(transparent.gad.val) LAYOUT(vertical) HSTRETCH 
+	    sepparm15.gad;		
+	    screendoorlimit.gad;		
+	    volumesteprate.gad;		
+} 
+
+secondary.gad = 
+
+GROUP simple "Secondary" flat 
+{ 
+    VALUE(secondary.gad.val) LAYOUT(vertical) HSTRETCH 
+	    sepparm14.gad;		
+	    varianceaa_minsamples.gad;		
+	    varianceaa_maxsamples.gad;		
+	    sepparm10.gad;		
+	    diffusequality.gad;		
+	    reflectquality.gad;		
+	    refractquality.gad;		
+	    volumequality.gad;		
+	    sssquality.gad;		
+	    light_sampling_quality.gad;		
+} 
+
+sampling.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "sampling.gad"
+    { 
+	VALUE(sampling.gad.val) STRETCH(1,0)
+
+	TAB "Sampling"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    secondary.gad;		
+	    sepparm11.gad;		
+	    transparent.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Limits"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm16.gad;		
+	    diffuselimit.gad;		
+	    reflectionlimit.gad;		
+	    refractionlimit.gad;		
+	    volumelimit.gad;		
+	    ssslimit.gad;		
+	    colorlimit.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Camera"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm17.gad;		
+	    shutter_speed.gad;		
+	    sepparm44.gad;		
+	    enablemblur.row.join;		
+	    sepparm18.gad;		
+	    vblur.gad;		
+	    geosamples.gad;		
+	    volumevblurscale.gad;		
+	    sepparm21.gad;		
+	    causticsroughnessclamp.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Advanced"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm19.gad;		
+	    oracle_variance.gad;		
+	    varianceaa_thresh.gad;		
+	    bucketsize.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+settings.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "settings.gad"
+    { 
+	VALUE(settings.gad.val) STRETCH(1,0)
+
+	TAB "Settings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm20.gad;		
+	    engine.gad;		
+	    sepparm12.gad;		
+	    samplesperpixel.gad;		
+	    pathtracedsamples.gad;		
+	    russianroulette_cutoff.gad;		
+	    sepparm13.gad;		
+	    sampling.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "AOVs"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm23.gad;		
+	    preprocess.row.join;		
+	    lpeaovlimit.gad;		
+	    prefix.gad;		
+	    tokenseparator.row.join;		
+	    vexpression.gad;		
+	    sepparm34.gad;		
+	    default_aov.row.join;		
+	    sepparm22.gad;		
+	    beautyaov.gad;		
+	    diffuseaov.gad;		
+	    rraov.gad;		
+	    leaov.gad;		
+	    volumeaov.gad;		
+	    bsdfaov.gad;		
+	    raov_.gad;		
+	    caov.gad;		
+	    customaov.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Output"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm36.gad;		
+	    render_deep.row.join;		
+	    sepparm30.gad;		
+	    products.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+publish_backend.gad = 
+
+{
+    VALUE(publish_backend.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    cam_path.gad;		
+	    back_plate.gad;		
+} 
+
+publishing.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "publishing.gad"
+    { 
+	VALUE(publishing.gad.val) STRETCH(1,0)
+
+	TAB "Publishing"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    load_shot.gad;		
+	    sepparm.gad;		
+	    frame_range.gad;		
+	    sepparm2.gad;		
+	    cam.row.join;		
+	    sepparm3.gad;		
+	    plate.gad;		
+	    sepparm6.gad;		
+	    padding.gad;		
+	    description.gad;		
+	    publish.row.join;		
+	    sepparm5.gad;		
+	    show_publish_backend.gad;		
+	    publish_backend.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Rendering"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm8.gad;		
+	    settings.gad;		
+	    sepparm4.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Exporting"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm7.gad;		
+	    Render.gad;		
+	    Export.gad;		
+	    show_render_backend.gad;		
+	    render_backend.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    targettopnetwork.gad; 
+    publishing.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}
