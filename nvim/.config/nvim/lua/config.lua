@@ -33,10 +33,18 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
+vim.cmd("filetype plugin indent on")
 
 vim.opt.iskeyword:append "-"
 vim.o.breakindent = true
 vim.o.backspace = 'indent,eol,start'
 vim.o.showtabline = 2
 vim.o.smartindent = true
+vim.o.smarttab = true
 vim.o.swapfile = false
+vim.opt.nrformats:remove("octal")
+vim.opt.ruler = true
+vim.opt.wildmenu = true
+vim.opt.listchars = { tab = "> ", trail = "-", extends = ">", precedes = "<", nbsp = "+" }
+vim.o.autoread = true
+
