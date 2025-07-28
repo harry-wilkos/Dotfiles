@@ -47,4 +47,4 @@ vim.opt.ruler = true
 vim.opt.wildmenu = true
 vim.opt.listchars = { tab = "> ", trail = "-", extends = ">", precedes = "<", nbsp = "+" }
 vim.o.autoread = true
-
+vim.o.mousemoveevent = true
