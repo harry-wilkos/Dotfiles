@@ -2,6 +2,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    dependencies = "folke/flash.nvim",
     config = function()
         require("snacks").setup({
             quickfile = {
@@ -18,6 +19,14 @@ return {
             },
             picker = {
                 enabled = true,
+                win = {
+                    input = {
+                        keys = {
+                          ["<a-s>"] = { "flash", mode = { "n", "i" } },
+                            ["s"] = { "flash" },  
+                        }
+                    }
+                }
             },
             explorer = {
                 enabled = true,
@@ -29,10 +38,31 @@ return {
                     duration = { step = 15, total = 140 },
                     easine = "linear",
                   },
+            },
+            actions = {
+               flash = function(picker)
+              require("flash").jump({
+                pattern = "^",
+                label = { after = { 0, 0 } },
+                search = {
+                  mode = "search",
+                  exclude = {
+                    function(win)
+                      return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list"
+                    end,
+                  },
+                },
+                action = function(match)
+                  local idx = picker.list:row2idx(match.pos[1])
+                  picker.list:_move(idx, true, true)
+                end,
+              })
+            end, 
             }
 
-        })
 
+        })
+        
         -- Top Pickers & Explorer
         vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { noremap = true, silent = true, desc = "Smart Find Files" })
         vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { noremap = true, silent = true, desc = "Buffers" })
