@@ -4,8 +4,11 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
+    "nvim-telescope/telescope.nvim"
   },
   config = function()
+    vim.keymap.set('n', '<leader>nl', '<cmd>Noice last<CR>', {noremap = true, silent = true})
+    vim.keymap.set('n', '<leader>nh', '<cmd>Noice telescope<CR>', {noremap = true, silent = true})
     require("noice").setup({
       lsp = {
         override = {
@@ -24,7 +27,6 @@ return {
     })
 
     require("notify").setup({
-		background_colour = "#000000",
 		timeout = 750,
 		render = "compact"
 		})

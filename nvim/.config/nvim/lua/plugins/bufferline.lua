@@ -43,8 +43,8 @@ return {
                 end,
                 offsets = {
                     {
-                        filetype = "NvimTree",
-                        text  = "File Explorer",
+                        filetype = "snacks_layout_box",
+                        text  = "Explorer",
                         highlighting = "PanelHeading",
                         padding = 1
                     },

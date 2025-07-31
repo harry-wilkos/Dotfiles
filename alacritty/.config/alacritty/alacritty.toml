@@ -16,6 +16,14 @@ save_to_clipboard = true
 [mouse]
 hide_when_typing = true
 
+[cursor]
+smooth_motion = true
+smooth_motion_factor = 1
+smooth_motion_spring = 0.5
+smooth_motion_max_stretch_x = 5
+smooth_motion_max_stretch_y = 5
+block_replace_shape = "block"
+
 [env]
 TERM = "xterm-256color"
 
