@@ -8,7 +8,7 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<leader>nl', '<cmd>Noice last<CR>', {noremap = true, silent = true})
-    vim.keymap.set('n', '<leader>nh', '<cmd>Noice telescope<CR>', {noremap = true, silent = true})
+    vim.keymap.set('n', '<leader>nh', '<cmd>Noice picker<CR>', {noremap = true, silent = true})
     require("noice").setup({
       lsp = {
         override = {
