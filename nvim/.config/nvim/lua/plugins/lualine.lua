@@ -18,7 +18,10 @@ return {
                 end
                 return ""
             end
-
+                vim.api.nvim_set_hl(0, "LualineRecording", {
+                  fg   = hl("red"),
+                  bold = true,
+                })
             require('lualine').setup({
             options = { theme = {
                   normal = {
@@ -84,6 +87,12 @@ return {
 						icon = "",
                         separator = ""
 					},
+                    {
+                        function() return ' %#LualineRecording#Recording Slot ' .. vim.fn.reg_recording():upper() end,
+                        cond = function() return vim.fn.reg_recording() ~= '' end,
+                        separator = '',
+                        padding = 0,
+                    },
                     {
                         function() return "%=" end,
                         separator = "",
