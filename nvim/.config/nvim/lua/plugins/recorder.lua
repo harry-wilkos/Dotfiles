@@ -3,7 +3,7 @@ return {
     config = function()
         require("recorder").setup {
             slots = { "a", "b" },
-            clear = true,
+            -- clear = true,
             mapping = {
                 startStopRecording = "q",
                 playMacro = "Q",

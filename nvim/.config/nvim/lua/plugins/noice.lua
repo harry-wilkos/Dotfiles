@@ -24,6 +24,7 @@ return {
         inc_rename = false,
         lsp_doc_border = false,
       },
+
     })
 
     require("notify").setup({
