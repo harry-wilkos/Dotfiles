@@ -38,6 +38,7 @@ return {
                     duration = { step = 15, total = 140 },
                     easine = "linear",
                   },
+                animate_repeat = {delat = 0}
             },
             actions = {
                flash = function(picker)

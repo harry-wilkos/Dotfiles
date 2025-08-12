@@ -6,14 +6,33 @@ return {
     config = function()
         vim.opt.foldenable = true
         vim.opt.foldlevel = 99
-        vim.opt.foldlevelstart = 6
-       vim.opt.fillchars = {
-          foldopen = "󰜰",   
-          foldclose = "󰜵", 
-          foldsep = " ",   
-          fold = " ",
-          eob = " ",  
+        vim.opt.foldlevelstart = 99
+        vim.opt.foldtext = ""
+        vim.opt.viewoptions:append("folds")
+        vim.opt.fillchars = {
+            foldopen = "󰜰",
+            foldclose = "󰜵",
+            foldsep = " ",
+            fold = " ",
+            eob = " ",
         }
+        vim.keymap.set('n', 'zr', require('ufo').openAllFolds)
+        vim.keymap.set('n', 'zm', require('ufo').closeAllFolds)
+
+        vim.api.nvim_create_autocmd("BufWinLeave", {
+            pattern = "*",
+            callback = function()
+                vim.cmd("silent! mkview")
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("BufWinEnter", {
+            pattern = "*",
+            callback = function()
+                vim.cmd("silent! loadview")
+            end,
+        })
+
         local handler = function(virtText, lnum, endLnum, width, truncate)
             local newVirtText = {}
             local suffix = (' 󱥤 %d '):format(endLnum - lnum)
@@ -28,7 +47,7 @@ return {
                 else
                     chunkText = truncate(chunkText, targetWidth - curWidth)
                     local hlGroup = chunk[2]
-                    table.insert(newVirtText, {chunkText, hlGroup})
+                    table.insert(newVirtText, { chunkText, hlGroup })
                     chunkWidth = vim.fn.strdisplaywidth(chunkText)
                     if curWidth + chunkWidth < targetWidth then
                         suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
@@ -37,19 +56,33 @@ return {
                 end
                 curWidth = curWidth + chunkWidth
             end
-            table.insert(newVirtText, {suffix, nil})
+            table.insert(newVirtText, { suffix, nil })
             return newVirtText
         end
 
-
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true
+        }
+        local language_servers = vim.lsp.get_clients()
+        for _, ls in ipairs(language_servers) do
+            require('lspconfig')[ls].setup({
+                capabilities = capabilities
+            })
+        end
         require("ufo").setup({
             provider_selector = function(bufnr, filetype, buftype)
-                return { 'treesitter', 'indent'}
-                -- return {"lsp", 'treesitter', 'indent'}
+                local hasFolds = vim.fn.filereadable(
+                    string.format('%s/queries/%s/folds.scm', vim.fn.stdpath('data') .. '/lazy/nvim-treesitter', filetype)
+                ) == 1
+                if hasFolds then
+                    return { 'lsp', 'treesitter' }
+                else
+                    return { 'lsp', 'indent' }
+                end
             end,
-            fold_virt_text_handler = handler
+            fold_virt_text_handler = handler,
         })
-        vim.keymap.set('n', 'zr', require('ufo').openAllFolds)
-        vim.keymap.set('n', 'zm', require('ufo').closeAllFolds)
     end
 }

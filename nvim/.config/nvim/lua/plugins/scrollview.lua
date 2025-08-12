@@ -18,7 +18,10 @@ return {
                 base = "right",
                 hide_bar_for_insert = true,
                 hide_on_text_intersect = true,
-                character = "┃"
+                character = "┃",
+                signs_hidden_for_insert = {"all"},
+                signs_show_in_folds = true,
+                signs_scrollbar_overlap = "under"
             }
         )
     end

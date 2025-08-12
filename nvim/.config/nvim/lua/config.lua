@@ -1,3 +1,4 @@
+require("diagnostics")
 vim.o.clipboard = "unnamedplus"
 
 vim.o.number = true

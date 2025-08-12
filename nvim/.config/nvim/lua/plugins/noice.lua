@@ -1,6 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  priority = 1000,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
@@ -8,7 +9,8 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<leader>nl', '<cmd>Noice last<CR>', {noremap = true, silent = true})
-    vim.keymap.set('n', '<leader>nh', '<cmd>Noice picker<CR>', {noremap = true, silent = true})
+    vim.keymap.set('n', '<leader>nh', '<cmd>Noice picker<cr>', {noremap = true, silent = true})
+    vim.keymap.set('n', '<leader>na', '<cmd>Noice all<cr>', {noremap = true, silent = true})
     require("noice").setup({
       lsp = {
         override = {
