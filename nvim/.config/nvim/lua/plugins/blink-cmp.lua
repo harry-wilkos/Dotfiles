@@ -32,9 +32,9 @@ return {
 				["<Tab>"] = {
 					function(cmp)
 						if has_words_before() then
-                            if require("blink.cmp").is_visible() then
-                                require("blink.cmp").show()
-                            end
+							if require("blink.cmp").is_visible() then
+								require("blink.cmp").show()
+							end
 							return cmp.insert_next()
 						end
 					end,
@@ -77,12 +77,10 @@ return {
 						return { "s", "n" }
 					end,
 				},
-				list = {
-					selection = { preselect = false , auto_insert = true},
-				},
+				list = { selection = { preselect = false, auto_insert = true } },
 				ghost_text = { enabled = true, show_without_selection = true },
 			},
-			signature = { enabled = false },
+			signature = { enabled = true },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
