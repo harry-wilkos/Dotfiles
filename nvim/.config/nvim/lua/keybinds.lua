@@ -24,6 +24,16 @@ vim.keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>", opts)
 vim.keymap.set("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", opts)
 vim.keymap.set("n", "<C-S-Del>", ":bd<CR>", opts)
 
-vim.keymap.set('n', 'z<Down>', 'zj', opts)
-vim.keymap.set('n', 'z<Up>', 'zk', opts)
+vim.keymap.set("n", "z<Down>", "zj", opts)
+vim.keymap.set("n", "z<Up>", "zk", opts)
+vim.keymap.set({ "n", "v" }, "<leader>bf", function()
+	require("conform").format({ lsp_format = "fallback" }, function(err, did_edit)
+		if did_edit then
+			vim.notify("Formatted Buffer", vim.log.levels.INFO)
+		end
+	end)
+end, opts)
 
+vim.keymap.set({ "n", "v" }, "<leader>bl", function()
+	require("lint").try_lint()
+end, opts)
