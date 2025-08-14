@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "xzbdmw/colorful-menu.nvim" },
+	dependencies = { "xzbdmw/colorful-menu.nvim", "folke/lazydev.nvim" },
 	version = "1.*",
 	opts_extend = { "sources.default" },
 	config = function()
@@ -83,8 +83,13 @@ return {
 			signature = { enabled = true },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
+					},
 					path = {
 						opts = {
 							get_cwd = function(_)

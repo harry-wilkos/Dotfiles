@@ -48,3 +48,4 @@ vim.keymap.set("n", "<leader>bh", function()
 	vim.lsp.buf.hover()
 end, opts)
 
+vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
