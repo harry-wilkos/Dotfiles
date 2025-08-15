@@ -186,11 +186,11 @@ symbol = " "
 tag_symbol = "  "
 
 [git_status]
-format = '\[[$all_status$ahead_behind]($style)\]'
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
+format = '([\[[$all_status$ahead_behind]($style)\]](foreground))'
+# ahead = ">"
+# behind = "<"
+# diverged = "<>"
+# renamed = "r"
 deleted = "x"
 
 [git_metrics]
