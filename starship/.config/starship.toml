@@ -1,5 +1,4 @@
 continuation_prompt = "[▸▹ ](dimmed white)"
-
 format = """
 $directory\
 ($nix_shell$container$fill$git_metrics\n)$cmd_duration\
@@ -12,7 +11,6 @@ $jobs\
 $sudo\
 $username\
 $character"""
-
 right_format = """
 $singularity\
 $kubernetes\
@@ -85,7 +83,6 @@ $status\
 $os\
 $time"""
 
-
 [cmd_duration]
 format = "[🕑$duration ](italic white)"
 
@@ -101,6 +98,9 @@ symbol = " "
 "Videos" = " "
 ".config" = " "
 "Repos" = "󱌢"
+
+[directory]
+read_only = " 󰌾"
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -148,9 +148,6 @@ symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
-[directory]
-read_only = " 󰌾"
-
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
 symbol = " "
@@ -186,10 +183,10 @@ format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = "  "
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+format = '\[[$all_status$ahead_behind]($style)\]'
 ahead = ">"
 behind = "<"
 diverged = "<>"
@@ -198,8 +195,8 @@ deleted = "x"
 
 [git_metrics]
 format = '([\[▴$added\]]($added_style))([\[▿$deleted\]]($deleted_style))'
-added_style = 'dimmed green'
-deleted_style = 'dimmed red'
+added_style = "dimmed green"
+deleted_style = "dimmed red"
 ignore_submodules = true
 disabled = false
 
@@ -404,7 +401,7 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '[$user ]($style)'
+format = "[$user ]($style)"
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
@@ -412,9 +409,6 @@ format = '\[[$symbol($version)]($style)\]'
 [vlang]
 format = '\[[$symbol($version)]($style)\]'
 
-
 [zig]
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
-
-

@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		require("link").setup({
-			clean = true,
+			clean = false,
 			lsps = { limit = 1, lua = { include = { "lua_ls" } } },
 			formatters = {
 				limit = 2,
