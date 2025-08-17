@@ -1,5 +1,5 @@
-ui.h.val := 1403;
+ui.h.val := 1440;
 ui.maximized := 0;
-ui.w.val := 2523;
-ui.x.val := 1098;
-ui.y.val := 1139;
+ui.w.val := 2560;
+ui.x.val := 1080;
+ui.y.val := 1120;

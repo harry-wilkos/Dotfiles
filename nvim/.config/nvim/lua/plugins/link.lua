@@ -1,5 +1,5 @@
 return {
-	-- dir = "~/Repos/link.nvim",
+	-- dir = "~/Projects/link.nvim",
     "harry-wilkos/link.nvim",
 	dependencies = {
 		"mason-org/mason.nvim",
@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		require("link").setup({
-			clean = false,
+			clean = true,
 			lsps = { limit = 1, lua = { include = { "lua_ls" } } },
 			formatters = {
 				limit = 2,
