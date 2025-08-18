@@ -1,6 +1,6 @@
 return {
-	-- dir = "~/Projects/link.nvim",
-    "harry-wilkos/link.nvim",
+	-- dir = "~/Projects/link",
+    "harry-wilkos/Link.Nvim",
 	dependencies = {
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",

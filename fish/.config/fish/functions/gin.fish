@@ -3,5 +3,6 @@ function gin --description 'Initialize git and optionally add a remote'
 
     if test (count $argv) -gt 0
         git remote add origin $argv
+        git pull origin main
     end
 end
