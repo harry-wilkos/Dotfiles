@@ -51,4 +51,12 @@ vim.keymap.set("n", "<leader>bh", function()
 	vim.lsp.buf.hover()
 end, opts)
 
+vim.keymap.set("n", "<leader>bd", function()
+	if vim.diagnostic.is_enabled() then
+		vim.diagnostic.enable(false)
+	else
+		vim.diagnostic.enable(true)
+	end
+end, opts)
+
 vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)

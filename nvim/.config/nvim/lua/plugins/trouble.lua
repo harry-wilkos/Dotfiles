@@ -50,6 +50,7 @@ return {
 				},
 			},
 
+
 			open_no_results = true,
 			warn_no_results = false,
 			auto_preview = false,

@@ -109,7 +109,10 @@ local function virtual_text_format(diagnostic)
 end
 
 vim.diagnostic.config({
-	virtual_text = { format = virtual_text_format, severity = { min = vim.diagnostic.severity.WARN } },
+	virtual_text = {
+		format = virtual_text_format,
+		severity = { min = vim.diagnostic.severity.WARN },
+	},
 	virtual_lines = { format = virtual_lines_format, current_line = true },
 	severity_sort = { reverse = false },
 })
@@ -141,3 +144,5 @@ vim.api.nvim_create_autocmd("VimResized", {
 		vim.diagnostic.show()
 	end,
 })
+
+
