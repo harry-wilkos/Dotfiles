@@ -1,7 +1,7 @@
 function update --wraps=eos-update --description 'alias update=eos-update'
     eos-update $argv
     flatpak uninstall --unused -y
-    hyprpm update --force
+    hyprpm update
     sudo paccache -r
     sudo pacman -Rns $(pacman -Qtdq)
     sudo journalctl --vacuum-time=7d

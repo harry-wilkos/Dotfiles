@@ -16,7 +16,7 @@ return {
 			lsps = { limit = 1, lua = { include = { "lua_ls" } } },
 			formatters = {
 				limit = 2,
-				python = { include = { "isort" } },
+				python = { include = { "isort", "black" } },
 
 				fish = { include = { "fish_indent" } },
 			},
