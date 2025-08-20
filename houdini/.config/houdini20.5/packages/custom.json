@@ -1,7 +1,10 @@
 {
   "env": [
     {
-      "EDITOR": "nvim"
+      "EDITOR": "alacritty -e nvim"
+    },
+    {
+      "VISUAL": "alacritty -e nvim"
     }
   ]
 }
