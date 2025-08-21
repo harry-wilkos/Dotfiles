@@ -1,10 +1,13 @@
 {
   "env": [
     {
-      "EDITOR": "alacritty -e nvim"
+      "EDITOR": "alacritty -e nvim -f"
     },
     {
-      "VISUAL": "alacritty -e nvim"
+      "VISUAL": "alacritty -e nvim -f"
+    },
+    {
+      "HOUDINI_OLD_SPINNER": true
     }
   ]
 }

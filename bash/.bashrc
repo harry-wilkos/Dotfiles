@@ -2,7 +2,6 @@
 # ~/.bashrc
 #
 export HOUDINI_USER_PREF_DIR="$HOME/.config/houdini__HVER__"
-export HOUDINI_OLD_SPINNER=true
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
