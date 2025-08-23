@@ -60,3 +60,12 @@ vim.keymap.set("n", "<leader>bd", function()
 end, opts)
 
 vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
+
+
+vim.keymap.set("n", "g/", "*", opts)
+vim.keymap.set("n", "[/", "[<C-i>",opts)
+vim.keymap.set("x", "/", "<esc>/\\%V",opts)
+
+
+vim.keymap.set("n", "cn", "*``cgn", opts)
+vim.keymap.set("n", "cN", "*``cgN", opts)

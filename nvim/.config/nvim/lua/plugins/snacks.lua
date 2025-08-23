@@ -73,7 +73,7 @@ return {
   },
 
             }
-
+        
         })
         
         -- Top Pickers & Explorer
@@ -81,7 +81,8 @@ return {
         vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { noremap = true, silent = true, desc = "Buffers" })
         vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep() end, { noremap = true, silent = true, desc = "Grep" })
         vim.keymap.set("n", "<leader>e", function() Snacks.picker.explorer(require("snacks").config.explorer) end, { noremap = true, silent = true, desc = "File Explorer" })
-
+        
+        vim.keymap.set("n", "<leader>g/", function() Snacks.picker.grep_word() end, {noremap = true, silent = true})
         -- Find
         vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { noremap = true, silent = true, desc = "Find Config File" })
         vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { noremap = true, silent = true, desc = "Find Files" })
