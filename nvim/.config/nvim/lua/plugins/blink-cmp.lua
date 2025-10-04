@@ -33,9 +33,10 @@ return {
                             if require("blink.cmp").is_visible() then
                                 require("blink.cmp").show()
                             end
-                            return cmp.insert_next()
+                            cmp.insert_next()
+                            return true
                         end
-                    end
+                    end, "fallback"
                 },
                 ["<S-Tab>"] = {"insert_prev"}
             },
