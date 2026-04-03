@@ -59,13 +59,19 @@ vim.keymap.set("n", "<leader>bd", function()
 	end
 end, opts)
 
+vim.keymap.set("n", "<leader>bc", function()
+	local buf = vim.api.nvim_get_current_buf()
+	for ns, _ in pairs(vim.diagnostic.get_namespaces()) do
+		vim.diagnostic.reset(ns, buf)
+	end
+	vim.notify("Diagnostics Cleared")
+end, opts)
+
 vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
 
-
 vim.keymap.set("n", "g/", "*", opts)
-vim.keymap.set("n", "[/", "[<C-i>",opts)
-vim.keymap.set("x", "/", "<esc>/\\%V",opts)
-
+vim.keymap.set("n", "[/", "[<C-i>", opts)
+vim.keymap.set("x", "/", "<esc>/\\%V", opts)
 
 vim.keymap.set("n", "cn", "*``cgn", opts)
 vim.keymap.set("n", "cN", "*``cgN", opts)
