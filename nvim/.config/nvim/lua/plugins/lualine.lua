@@ -17,10 +17,14 @@ return {
 
 		local function link()
 			local buf = vim.api.nvim_get_current_buf()
+			local ft = vim.bo[buf].filetype
 
 			local lsp_clients = vim.lsp.get_clients({ bufnr = buf })
 			local formatters = require("conform").list_formatters_to_run(buf)
-			local linters = require("lint").get_running()
+
+			-- Look up the configured linters for this specific filetype
+			local lint_ok, lint = pcall(require, "lint")
+			local linters = (lint_ok and lint.linters_by_ft[ft]) or {}
 
 			local parts = {}
 

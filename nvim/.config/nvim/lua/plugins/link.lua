@@ -17,8 +17,8 @@ return {
 			formatters = {
 				limit = 2,
 				python = { include = { "isort", "black" } },
-
 				fish = { include = { "fish_indent" } },
+                lua = { exclude = {"ast-grep"}}
 			},
 			linters = { limit = 1 },
 		})
