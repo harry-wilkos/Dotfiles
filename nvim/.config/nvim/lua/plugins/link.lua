@@ -1,6 +1,6 @@
 return {
 	-- dir = "~/Projects/link",
-    "harry-wilkos/Link.Nvim",
+	"harry-wilkos/Link.Nvim",
 	dependencies = {
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
@@ -13,12 +13,16 @@ return {
 	config = function()
 		require("link").setup({
 			clean = true,
-			lsps = { limit = 1, lua = { include = { "lua_ls" } } },
+			lsps = {
+				limit = 1,
+				lua = { include = { "lua_ls" } },
+				yaml = { include = { "yamlls" } },
+			},
 			formatters = {
-				limit = 2,
+				limit = 0,
 				python = { include = { "isort", "black" } },
 				fish = { include = { "fish_indent" } },
-                lua = { exclude = {"ast-grep"}}
+				lua = { exclude = { "ast-grep" } },
 			},
 			linters = { limit = 1 },
 		})
