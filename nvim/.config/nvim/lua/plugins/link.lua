@@ -19,7 +19,7 @@ return {
 				yaml = { include = { "yamlls" } },
 			},
 			formatters = {
-				limit = 0,
+				limit = 2,
 				python = { include = { "isort", "black" } },
 				fish = { include = { "fish_indent" } },
 				lua = { exclude = { "ast-grep" } },
