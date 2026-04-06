@@ -1,8 +1,8 @@
 return {
     "saghen/blink.cmp",
-    dependencies = {"xzbdmw/colorful-menu.nvim", "folke/lazydev.nvim"},
+    dependencies = { "xzbdmw/colorful-menu.nvim", "folke/lazydev.nvim" },
     version = "1.*",
-    opts_extend = {"sources.default"},
+    opts_extend = { "sources.default" },
     config = function()
         local has_words_before = function()
             local col = vim.api.nvim_win_get_cursor(0)[2]
@@ -26,7 +26,7 @@ return {
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
                 preset = "none",
-                ["<C-y>"] = {"select_and_accept"},
+                ["<C-y>"] = { "select_and_accept" },
                 ["<Tab>"] = {
                     function(cmp)
                         if has_words_before() then
@@ -38,14 +38,14 @@ return {
                         end
                     end, "fallback"
                 },
-                ["<S-Tab>"] = {"insert_prev"}
+                ["<S-Tab>"] = { "insert_prev" }
             },
             completion = {
-                documentation = {auto_show = true, auto_show_delay_ms = 500},
+                documentation = { auto_show = true, auto_show_delay_ms = 500 },
                 menu = {
                     auto_show = false,
                     draw = {
-                        columns = {{"kind_icon"}, {"label", gap = 1}},
+                        columns = { { "kind_icon" }, { "label", gap = 1 } },
                         components = {
                             label = {
                                 text = function(ctx)
@@ -65,28 +65,28 @@ return {
                         local ctx = require("blink.cmp").get_context()
                         local item = require("blink.cmp").get_selected_item()
                         if ctx == nil or item == nil then
-                            return {"s", "n"}
+                            return { "s", "n" }
                         end
 
                         local item_text =
                             item.textEdit ~= nil and item.textEdit.newText or
-                                item.insertText or item.label
+                            item.insertText or item.label
                         local is_multi_line = item_text:find("\n") ~= nil
                         if is_multi_line or vim.g.blink_cmp_upwards_ctx_id ==
                             ctx.id then
                             vim.g.blink_cmp_upwards_ctx_id = ctx.id
-                            return {"n", "s"}
+                            return { "n", "s" }
                         end
-                        return {"s", "n"}
+                        return { "s", "n" }
                     end
                 },
-                list = {selection = {preselect = false, auto_insert = true}},
-                ghost_text = {enabled = true, show_without_selection = true}
+                list = { selection = { preselect = false, auto_insert = true } },
+                ghost_text = { enabled = true, show_without_selection = true }
             },
-            signature = {enabled = true},
-            fuzzy = {implementation = "prefer_rust_with_warning"},
+            signature = { enabled = true },
+            fuzzy = { implementation = "prefer_rust_with_warning" },
             sources = {
-                default = {"lazydev", "lsp", "path", "snippets", "buffer"},
+                default = { "lazydev", "lsp", "path", "snippets", "buffer" },
                 providers = {
                     lazydev = {
                         name = "LazyDev",
@@ -94,9 +94,11 @@ return {
                         score_offset = 100
                     },
                     path = {
-                        opts = {get_cwd = function(_)
-                            return vim.fn.getcwd
-                        end}
+                        opts = {
+                            get_cwd = function(_)
+                                return vim.fn.getcwd()
+                            end
+                        }
                     }
                 }
             }
